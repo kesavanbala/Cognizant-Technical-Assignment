@@ -23,7 +23,7 @@ public class MyAccount extends SeleniumBase {
 
 	public void clickmyPersonalInfo() {
 		WebElement ele = locateElement("xpath", myPersonalInfoXpath);
-		ele.click();
+		click(ele);
 	}
 
 	public void changeFirstNmae(String data) {
@@ -50,9 +50,9 @@ public class MyAccount extends SeleniumBase {
 		WebElement ele = locateElement("xpath", btnBackToAccountXpath);
 		click(ele);
 	}
+
 	public void validatingTitle(String title) {
 		verifyTitle(title);
-		
-		
+
 	}
 }

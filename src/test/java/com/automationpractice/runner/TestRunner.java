@@ -3,8 +3,6 @@ package com.automationpractice.runner;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import com.vimalselvam.cucumber.listener.ExtentProperties;
-import com.vimalselvam.cucumber.listener.Reporter;
-
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
@@ -12,7 +10,7 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
 		glue= {"com.automationpractice.stepdefinations"},
 		features= {"src/test/resources/Feature.feature"},		
-		tags = {"@tag"},
+		tags = {"@FeatureStore"},
 		monochrome = true,
 		dryRun = false,
 	    plugin = {"com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:"}

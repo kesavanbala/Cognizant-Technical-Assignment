@@ -10,8 +10,6 @@ import com.automationpractice.pages.Order;
 import com.automationpractice.pages.OrderHistory;
 import com.automationpractice.pages.SignInPage;
 import com.automationpractice.pages.TshirtsMyStore;
-import com.vimalselvam.cucumber.listener.Reporter;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -28,7 +26,7 @@ public class OrderTShirtStepDefination {
 	OrderHistory orderList = new OrderHistory(SeleniumBase.getDriver());
 
 	@Given("^Initialize browser and lunch the URL with valid credential$")
-	public void initaite_the_browser_and_lunch_the_URL_with_valid_credential() throws Throwable {
+	public void Initialize_browser_and_lunch_the_URL_with_valid_credential() throws Throwable {
 		home.startApp(home.getValueFromProperties("browser"), home.getValueFromProperties("URL"));
 		home.clickSignInLink();
 		signin.enterEmail(home.getValueFromProperties("username"));
@@ -67,8 +65,8 @@ public class OrderTShirtStepDefination {
 		orderList.close();
 	}
 
-	@Given("^User is already on My Account page$")
-	public void user_is_already_on_My_Account_page() throws Throwable {
+	@Given("^Validate whether User navigated to My Account page after login$")
+	public void Validate_whether_User_navigated_to_My_Account_page_after_login() throws Throwable {
 		myAccount.validatingTitle(home.getValueFromProperties("titleOfMyAccount"));
 
 	}
@@ -82,11 +80,11 @@ public class OrderTShirtStepDefination {
 	}
 
 	@Then("^Validating user updates$")
-	public void Validating_user_updates() {
+	public void Validating_user_updates() throws Throwable {
 		myAccount.clickbtnBackToAccount();
 		myAccount.clickmyPersonalInfo();
-		System.out.println(myAccount.getModifiedFirstName());
-		Assert.assertEquals("test", "test");
+		Assert.assertEquals("Modified information not updated in personal information",
+				home.getValueFromProperties("newFirstName"), myAccount.getModifiedFirstName());
 		myAccount.close();
 	}
 
